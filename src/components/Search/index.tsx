@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { FC, useState } from 'react'
 import { FaSearchLocation } from 'react-icons/fa'
 
 import { getWeather } from 'store/thunk'
@@ -8,22 +8,22 @@ import {
   Button,
   SearchForm,
   SearchInput,
-  SearchWrapper,
+  SearchWrapper
 } from './styled'
 
-export const Search = () => {
+export const Search: FC = () => {
   const dispatch: AppDispatch = useAppDispatch()
   const [value, setValue] = useState<string>('')
 
   const handlerChange = (
-    e: React.ChangeEvent<HTMLInputElement>,
-  ) => {
+    e: React.ChangeEvent<HTMLInputElement>
+  ): void => {
     setValue(e.target.value)
   }
 
   const handleSearchCity = (
-    e: React.FormEvent<HTMLFormElement>,
-  ) => {
+    e: React.FormEvent<HTMLFormElement>
+  ): void => {
     e.preventDefault()
     dispatch(getWeather(value))
   }

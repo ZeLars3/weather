@@ -5,7 +5,7 @@ import { AppDispatch, useAppDispatch } from 'types'
 import {
   weatherAverage,
   ResultDaysType,
-  convertedLocalDate,
+  convertedLocalDate
 } from 'utils'
 
 import { Image } from '../Image'
@@ -14,31 +14,31 @@ import {
   Description,
   IconWrapper,
   ItemWrapper,
-  Temp,
+  Temp
 } from './styled'
 
 interface IPropsType {
-  onChangeSelected: (value: number) => void;
-  active: boolean;
-  day: number;
-  weatherData: ResultDaysType;
+  onChangeSelected: (value: number) => void
+  active: boolean
+  day: number
+  weatherData: ResultDaysType
 }
 
 export const WeatherItem: FC<IPropsType> = ({
   onChangeSelected,
   active,
   day,
-  weatherData,
+  weatherData
 }) => {
   const data: string = convertedLocalDate(
-    weatherData.weather[0].dt_txt,
+    weatherData.weather[0].dt_txt
   )
   const icon: string =
     weatherData.weather[0].weather[0].icon
   const description: string =
     weatherData.weather[0].weather[0].main
   const temp: string = weatherAverage(
-    weatherData.weather,
+    weatherData.weather
   ).toFixed(0)
   const dispatch: AppDispatch = useAppDispatch()
 

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-export const useDarkMode = () => {
+export const useDarkMode = (): Array<string | (() => void)> => {
   const [theme, setTheme] = useState<string>('light')
 
   const setMode = (mode: string): void => {

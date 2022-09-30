@@ -1,19 +1,19 @@
 import { IResponseListItem } from '../types'
 
-export type ResultDaysType = {
-  day: number,
-  weather: IResponseListItem[],
+export interface ResultDaysType {
+  day: number
+  weather: IResponseListItem[]
 }
 
 export const formattedData = (
-  data: Array<IResponseListItem>,
-) => {
+  data: IResponseListItem[]
+): ResultDaysType[] => {
   const result: ResultDaysType[] = []
   let indexArr: number[] = []
 
   data.forEach((weatherItem) => {
     const key = new Date(weatherItem.dt_txt).getDate()
-    let index = indexArr.indexOf(key)
+    const index = indexArr.indexOf(key)
 
     indexArr = [...Array.from(new Set(indexArr))]
     if (index !== -1) {

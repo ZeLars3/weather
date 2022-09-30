@@ -24,7 +24,7 @@ const composeEnhancers =
 
 const persistConfig = {
   key: 'root',
-  storage,
+  storage
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
@@ -32,7 +32,7 @@ const persistedReducer = persistReducer(persistConfig, rootReducer)
 const configureStore = () =>
   createStore(
     persistedReducer,
-    composeEnhancers(applyMiddleware(thunk)),
+    composeEnhancers(applyMiddleware(thunk))
   )
 
 const store = configureStore()

@@ -1,7 +1,9 @@
 import { BACKGROUND } from '../constants'
 import { WeatherType } from '../enums'
 
-export const getCardBackground = (weatherType: string) => {
+export const getCardBackground = (
+  weatherType: string
+): string => {
   switch (weatherType) {
     case WeatherType.Clear:
       return BACKGROUND.ClearSky
@@ -17,7 +19,7 @@ export const getCardBackground = (weatherType: string) => {
       return BACKGROUND.Snow
     case WeatherType.Drizzle:
       return BACKGROUND.Drizzle
-    case WeatherType.Drizzle:
+    case WeatherType.Thunderstorm:
       return BACKGROUND.Thunderstorm
     default:
       return BACKGROUND.Default

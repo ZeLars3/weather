@@ -4,10 +4,9 @@ import {
   convertedLocalDate,
   ResultDaysType,
   weatherAverage,
+  getCardBackground
 } from 'utils'
 import { IResponseCity } from 'types'
-
-import { getCardBackground } from 'utils'
 
 import {
   MainWrapper,
@@ -17,28 +16,28 @@ import {
   WeatherInfo,
   WeatherList,
   WeatherOtherInfo,
-  WeatherTemp,
+  WeatherTemp
 } from './styled'
 import { Image } from '../Image'
 
 interface IPropsType {
-  params: IResponseCity;
-  currentWeather: ResultDaysType;
+  params: IResponseCity
+  currentWeather: ResultDaysType
 }
 
 export const WeatherMain: FC<IPropsType> = ({
   params,
-  currentWeather,
+  currentWeather
 }) => {
   const date: string = convertedLocalDate(
-    currentWeather.weather[0].dt_txt,
+    currentWeather.weather[0].dt_txt
   )
   const population: string =
     params.population.toLocaleString()
   const description: string =
     currentWeather.weather[0].weather[0].main
   const icon: string =
-    currentWeather.weather[0].weather[0].icon
+  currentWeather.weather[0].weather[0].icon
   const pop: string = (
     currentWeather.weather[0].pop * 100
   ).toFixed(0)
@@ -47,11 +46,14 @@ export const WeatherMain: FC<IPropsType> = ({
   const windSpeed: string =
     currentWeather.weather[0].wind.speed.toFixed(1)
   const temp: string = weatherAverage(
-    currentWeather.weather,
+    currentWeather.weather
   ).toFixed(0)
 
   return (
-    <MainWrapper background={description} image={getCardBackground(description)}>
+    <MainWrapper
+      background={description}
+      image={getCardBackground(description)}
+    >
       <WeatherData>
         <WeatherInfo>
           <WeatherIcon>
@@ -66,15 +68,15 @@ export const WeatherMain: FC<IPropsType> = ({
             </div>
           </WeatherTemp>
           <WeatherList>
-            <li className="weather__item">
+            <li>
               Pop:
               <span> {pop}%</span>
             </li>
-            <li className="weather__item">
+            <li>
               Humidity:
               <span> {humidity}%</span>
             </li>
-            <li className="weather__item">
+            <li>
               wind:
               <span> {windSpeed}</span> m/s
             </li>

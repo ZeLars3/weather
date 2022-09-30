@@ -1,11 +1,11 @@
 export const BACKGROUND = {
-  ClearSky: require('assets/img/clearSky.jpg'),
-  Rain: require('assets/img/rain.jpg'),
-  Clouds: require('assets/img/clouds.jpg'),
-  Тornado: require('assets/img/tornado.jpg'),
-  Squall: require('assets/img/squall.jpg'),
-  Snow: require('assets/img/snow.jpeg'),
-  Drizzle: require('assets/img/drizzle.jpg'),
-  Thunderstorm: require('assets/img/thunderstorm.jpg'),
-  Default: require('assets/img/defaultBack.webp')
+  ClearSky: require('assets/img/clearSky.png') as string,
+  Rain: require('assets/img/rain.png') as string,
+  Clouds: require('assets/img/clouds.png') as string,
+  Тornado: require('assets/img/tornado.png') as string,
+  Squall: require('assets/img/squall.png') as string,
+  Snow: require('assets/img/snow.png') as string,
+  Drizzle: require('assets/img/drizzle.png') as string,
+  Thunderstorm: require('assets/img/thunderstorm.png') as string,
+  Default: require('assets/img/defaultBack.png') as string
 }

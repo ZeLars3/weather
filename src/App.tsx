@@ -1,10 +1,10 @@
-import { FC, useState } from 'react'
+import { FC } from 'react'
 
 import { Loading } from './components/common'
 import { WeatherContent } from './components/common/Routes'
 
-export const App: FC = () => {
-  const [isLoading, setIsLoading] = useState(false)
+const isLoading: boolean = false
 
+export const App: FC = () => {
   return isLoading ? <Loading /> : <WeatherContent />
 }

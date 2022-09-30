@@ -10,10 +10,11 @@ import {
   AppName,
   Container,
   ThemeWrapper,
-  Wrapper,
+  Wrapper
 } from './styled'
+import { FC } from 'react'
 
-export const Home = () => {
+export const Home: FC = () => {
   const [theme, themeToggler] = useDarkMode()
   const themeMode =
     theme === 'light' ? themeLight : themeDark

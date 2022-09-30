@@ -5,25 +5,29 @@ import { RiMoonClearFill } from 'react-icons/ri'
 import { Color } from 'enums'
 
 interface IPropsType {
-  theme: any;
-  toggleTheme: any;
+  theme: string | (() => void)
+  toggleTheme: any
 }
 
 export const ThemeSwitcher: FC<IPropsType> = ({
   theme,
-  toggleTheme,
+  toggleTheme
 }) => {
-  return theme === 'light' ? (
+  return theme === 'light'
+    ? (
     <IoIosSunny
+      cursor='pointer'
       onClick={toggleTheme}
       color={Color.yellow}
       size={25}
     />
-  ) : (
+      )
+    : (
     <RiMoonClearFill
+      cursor='pointer'
       onClick={toggleTheme}
       color={Color.yellow}
       size={25}
     />
-  )
+      )
 }

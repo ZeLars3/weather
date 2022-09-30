@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+
 import { Color } from '../../../enums'
 
 export const LoadingWrapper = styled.div`
