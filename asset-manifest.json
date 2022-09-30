@@ -1,23 +1,22 @@
 {
   "files": {
-    "main.js": "./static/js/main.e159eb53.js",
+    "main.js": "./static/js/main.cabfbf9d.js",
     "static/js/787.13d76ca7.chunk.js": "./static/js/787.13d76ca7.chunk.js",
-    "static/media/rain.jpg": "./static/media/rain.7722aed73ea342364fa6.jpg",
-    "static/media/snow.jpeg": "./static/media/snow.987577c582b69898d755.jpeg",
-    "static/media/drizzle.jpg": "./static/media/drizzle.af7e8a5a1f3959674bef.jpg",
-    "static/media/squall.jpg": "./static/media/squall.ec02bfda147719e6b50e.jpg",
-    "static/media/clearSky.jpg": "./static/media/clearSky.c6b29339d93061853fa7.jpg",
-    "static/media/thunderstorm.jpg": "./static/media/thunderstorm.1455e4fe6fe8a0334945.jpg",
-    "static/media/clouds.jpg": "./static/media/clouds.c74f1666896d78204637.jpg",
-    "static/media/tornado.jpg": "./static/media/tornado.3d432684e498ac7dbf41.jpg",
+    "static/media/rain.png": "./static/media/rain.33d52986305adc4dd26b.png",
+    "static/media/snow.png": "./static/media/snow.323fd49b1bc08837d031.png",
+    "static/media/drizzle.png": "./static/media/drizzle.f22ddbdb7a6401badffc.png",
+    "static/media/clearSky.png": "./static/media/clearSky.8add56aad8324503cf09.png",
+    "static/media/squall.png": "./static/media/squall.ec213c22e48f9f1833b6.png",
+    "static/media/thunderstorm.png": "./static/media/thunderstorm.a8539cbf450622059226.png",
+    "static/media/clouds.png": "./static/media/clouds.a3d3edc6134baffb9aa6.png",
+    "static/media/tornado.png": "./static/media/tornado.e570b9f1f860d244349c.png",
     "static/media/cloud.svg": "./static/media/cloud.32029bc571a8e726355fc3fc3822f44a.svg",
     "static/media/sunny.svg": "./static/media/sunny.137e9c17591c362fd3de3d97a2b5e76a.svg",
     "index.html": "./index.html",
-    "static/media/defaultBack.webp": "./static/media/defaultBack.e602727f0c8e90f61e17.webp",
-    "main.e159eb53.js.map": "./static/js/main.e159eb53.js.map",
+    "main.cabfbf9d.js.map": "./static/js/main.cabfbf9d.js.map",
     "787.13d76ca7.chunk.js.map": "./static/js/787.13d76ca7.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.e159eb53.js"
+    "static/js/main.cabfbf9d.js"
   ]
 }
