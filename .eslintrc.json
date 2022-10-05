@@ -25,6 +25,20 @@
       "error",
       "never"
     ],
+    "comma-dangle": [
+      2,
+      "always-multiline"
+    ],
+    "@typescript-eslint/comma-dangle": "warn",
+    "@typescript-eslint/no-floating-promises": [
+      "warn"
+    ],
+    "@typescript-eslint/strict-boolean-expressions": [
+      "warn"
+    ],
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/prefer-nullish-coalescing": "off",
+    "@typescript-eslint/no-var-requires": 0,
     "@typescript-eslint/semi": "off",
     "no-unexpected-multiline": "error"
   }

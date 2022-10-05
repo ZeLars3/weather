@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { Color } from '../../enums'
+import { Color } from 'enums'
 
 export const Wrapper = styled.div`
   height: 100vh;

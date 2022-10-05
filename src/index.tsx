@@ -10,7 +10,7 @@ import reportWebVitals from './reportWebVitals'
 import { persistor, store } from './store'
 
 const root: Root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById('root') as HTMLElement,
 )
 
 root.render(
@@ -21,7 +21,7 @@ root.render(
         <App />
       </PersistGate>
     </Provider>
-  </React.StrictMode>
+  </React.StrictMode>,
 )
 
 reportWebVitals()

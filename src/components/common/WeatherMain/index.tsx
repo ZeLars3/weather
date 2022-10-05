@@ -4,7 +4,7 @@ import {
   convertedLocalDate,
   ResultDaysType,
   weatherAverage,
-  getCardBackground
+  getCardBackground,
 } from 'utils'
 import { IResponseCity } from 'types'
 
@@ -16,7 +16,7 @@ import {
   WeatherInfo,
   WeatherList,
   WeatherOtherInfo,
-  WeatherTemp
+  WeatherTemp,
 } from './styled'
 import { Image } from '../Image'
 
@@ -27,10 +27,10 @@ interface IPropsType {
 
 export const WeatherMain: FC<IPropsType> = ({
   params,
-  currentWeather
+  currentWeather,
 }) => {
   const date: string = convertedLocalDate(
-    currentWeather.weather[0].dt_txt
+    currentWeather.weather[0].dt_txt,
   )
   const population: string =
     params.population.toLocaleString()
@@ -46,7 +46,7 @@ export const WeatherMain: FC<IPropsType> = ({
   const windSpeed: string =
     currentWeather.weather[0].wind.speed.toFixed(1)
   const temp: string = weatherAverage(
-    currentWeather.weather
+    currentWeather.weather,
   ).toFixed(0)
 
   return (

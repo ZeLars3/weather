@@ -7,7 +7,7 @@ import {
   LoadingWrapper,
   Text,
   Wrapper,
-  ImageWrapper
+  ImageWrapper,
 } from './styled'
 
 export const Loading: FC = () => {

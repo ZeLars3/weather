@@ -12,10 +12,9 @@ import { rootReducer } from './reducer'
 type AppRootReducer = typeof rootReducer
 export type RootStateType = ReturnType<AppRootReducer>
 
-
 declare global {
   interface Window {
-    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
+    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose
   }
 }
 
@@ -24,7 +23,7 @@ const composeEnhancers =
 
 const persistConfig = {
   key: 'root',
-  storage
+  storage,
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
@@ -32,7 +31,7 @@ const persistedReducer = persistReducer(persistConfig, rootReducer)
 const configureStore = () =>
   createStore(
     persistedReducer,
-    composeEnhancers(applyMiddleware(thunk))
+    composeEnhancers(applyMiddleware(thunk)),
   )
 
 const store = configureStore()

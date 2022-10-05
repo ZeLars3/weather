@@ -1,19 +1,19 @@
 import { FC, useEffect, useState } from 'react'
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid'
 
 import { getWeather, getGeolocation } from 'store/thunk'
 import { ResultDaysType } from 'utils'
-
 import {
   AppDispatch,
   useAppDispatch,
-  useAppSelector
-} from '../../types'
+  useAppSelector,
+} from 'types'
+
 import {
   ErrorLoader,
   Loading,
   WeatherItem,
-  WeatherMain
+  WeatherMain,
 } from '../common'
 import { WeatherListCard, WeatherWrapper } from './styled'
 
@@ -21,26 +21,26 @@ export const WeatherContainer: FC = () => {
   const [selected, setSelected] = useState <number>(0)
   const dispatch: AppDispatch = useAppDispatch()
   const isPending = useAppSelector(
-    (state: any) => state.weather?.isPending
+    (state: any) => state.weather?.isPending,
   )
   const days = useAppSelector(
-    (state: any) => state.weather?.days
+    (state: any) => state.weather?.days,
   )
   const weatherCity = useAppSelector(
-    (state: any) => state.weather?.weather?.city
+    (state: any) => state.weather?.weather?.city,
   )
   const currentWeather = useAppSelector(
-    (state: any) => state.weather?.currentDayWeather
+    (state: any) => state.weather?.currentDayWeather,
   )
   const error = useAppSelector(
-    (state: any) => state.weather?.error
+    (state: any) => state.weather?.error,
   )
   const userCity = useAppSelector(
-    (state: any) => state.location?.location?.city?.name_en
+    (state: any) => state.location?.location?.city?.name_en,
   )
 
   useEffect(() => {
-    dispatch(getGeolocation()),
+    dispatch(getGeolocation())
     dispatch(getWeather(userCity))
   }, [])
 

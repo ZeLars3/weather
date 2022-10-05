@@ -1,8 +1,8 @@
-import { BACKGROUND } from '../constants'
-import { WeatherType } from '../enums'
+import { BACKGROUND } from 'constants/index'
+import { WeatherType } from 'enums'
 
 export const getCardBackground = (
-  weatherType: string
+  weatherType: string,
 ): string => {
   switch (weatherType) {
     case WeatherType.Clear:

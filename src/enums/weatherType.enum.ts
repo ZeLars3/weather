@@ -6,5 +6,5 @@ export enum WeatherType {
   Snow = 'Snow',
   Rain = 'Rain',
   Drizzle = 'Drizzle',
-  Thunderstorm = 'Thunderstorm'
+  Thunderstorm = 'Thunderstorm',
 }

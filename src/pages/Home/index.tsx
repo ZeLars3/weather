@@ -1,18 +1,22 @@
+import { FC } from 'react'
 import { ThemeProvider } from 'styled-components'
 
-import { Search, WeatherContainer } from 'components'
-import { useDarkMode } from 'hooks'
+import {
+  CalendarContainer,
+  Search,
+  WeatherContainer,
+} from 'components'
+import { Selector, ThemeSwitcher } from 'components/common'
 import { themeDark, themeLight } from 'assets/styles/theme'
-import { ThemeSwitcher } from 'components/common'
+import { useDarkMode } from 'hooks'
 
 import {
   AppGlass,
   AppName,
   Container,
   ThemeWrapper,
-  Wrapper
+  Wrapper,
 } from './styled'
-import { FC } from 'react'
 
 export const Home: FC = () => {
   const [theme, themeToggler] = useDarkMode()
@@ -26,12 +30,14 @@ export const Home: FC = () => {
           <Container>
             <ThemeWrapper>
               <AppName>Weather ⛅</AppName>
+              <Selector />
               <ThemeSwitcher
                 theme={theme}
                 toggleTheme={themeToggler}
               />
             </ThemeWrapper>
             <Search />
+            <CalendarContainer />
             <WeatherContainer />
           </Container>
         </AppGlass>

@@ -1,13 +1,12 @@
 import { FC } from 'react'
-
-import { Home, PageNotFound } from 'pages'
-
 import {
   BrowserRouter,
   Routes,
   Route,
-  Navigate
+  Navigate,
 } from 'react-router-dom'
+
+import { Home, PageNotFound } from 'pages'
 
 export const WeatherContent: FC = () => (
   <BrowserRouter>

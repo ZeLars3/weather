@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import {
   NavigateFunction,
-  useNavigate
+  useNavigate,
 } from 'react-router-dom'
 
 import NotFound from 'assets/img/cloud.svg'
@@ -11,7 +11,7 @@ import {
   ErrorTitle,
   ErrorImg,
   ErrorSubtitle,
-  Button
+  Button,
 } from './styled'
 
 export const PageNotFound: FC = () => {

@@ -11,7 +11,7 @@ interface IPropsType {
 
 export const ThemeSwitcher: FC<IPropsType> = ({
   theme,
-  toggleTheme
+  toggleTheme,
 }) => {
   return theme === 'light'
     ? (

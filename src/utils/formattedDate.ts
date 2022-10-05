@@ -1,4 +1,4 @@
-import { IResponseListItem } from '../types'
+import { IResponseListItem } from 'types'
 
 export interface ResultDaysType {
   day: number
@@ -6,7 +6,7 @@ export interface ResultDaysType {
 }
 
 export const formattedData = (
-  data: IResponseListItem[]
+  data: IResponseListItem[],
 ): ResultDaysType[] => {
   const result: ResultDaysType[] = []
   let indexArr: number[] = []

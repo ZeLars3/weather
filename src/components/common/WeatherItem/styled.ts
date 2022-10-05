@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import { Color } from 'enums'
+
 export const ItemWrapper = styled.div`
   border-radius: 10px;
   padding: 1rem 0.5rem;
@@ -15,15 +17,15 @@ export const ItemWrapper = styled.div`
 
   &.active {
     transform: scale(1.05);
+    color: ${Color.white};
     background: ${props => props.theme.activeCard};
-    color: white;
   }
 
   @media (max-width: 600px) {
     gap: 0.2rem;
-    font-size: 10px;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    font-size: 10px;
   }
 
   @media (max-width: 400px) {

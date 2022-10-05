@@ -1,14 +1,16 @@
 import styled from 'styled-components'
 
+import { Color } from 'enums'
+
 export const MainWrapper = styled.div<any>`
   border-radius: 30px;
   padding: 2rem 1rem;
   margin-bottom: 2rem;
-  background: no-repeat top/100% url(${(props) => props.image});
-  box-shadow: 0px 19px 60px rgb(0 0 0 / 8%);
-  color: white;
   -webkit-text-stroke-width: 0.1px;
   -webkit-text-stroke-color: gray;
+  box-shadow: 0px 19px 60px rgb(0 0 0 / 8%);
+  color: ${Color.white};
+  background: no-repeat top/100% url(${props => props.image});
 `
 
 export const WeatherData = styled.div`
@@ -23,10 +25,10 @@ export const WeatherData = styled.div`
 
 export const WeatherInfo = styled.div`
   display: flex;
-  font-size: 60px;
   flex-wrap: wrap;
   align-items: center;
   flex-basis: 50%;
+  font-size: 60px;
 
   @media (max-width: 567px) {
     flex-basis: 100%;
@@ -39,10 +41,12 @@ export const WeatherTemp = styled.div`
   display: flex;
   align-items: flex-end;
   flex-direction: column;
+
   > div {
     display: flex;
     align-items: flex-start;
   }
+  
   span {
     font-size: 16px;
   }
