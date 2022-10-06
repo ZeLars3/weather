@@ -1,15 +1,15 @@
 import { FC } from 'react'
 import {
-  BrowserRouter,
   Routes,
   Route,
   Navigate,
+  HashRouter,
 } from 'react-router-dom'
 
 import { Home, PageNotFound } from 'pages'
 
 export const WeatherContent: FC = () => (
-  <BrowserRouter>
+  <HashRouter>
     <Routes>
       <Route path="/" element={<Home />} />
       <Route
@@ -18,5 +18,5 @@ export const WeatherContent: FC = () => (
       />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
-  </BrowserRouter>
+  </HashRouter>
 )
