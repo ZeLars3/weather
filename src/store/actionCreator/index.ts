@@ -36,4 +36,9 @@ export const actions = {
       type: TYPES.SET_API,
       service: name,
     } as const),
+  setHourlyWeather: (data: any) =>
+    ({
+      type: TYPES.SET_WEATHER_HOURLY,
+      weatherHourly: data,
+    } as const),
 }

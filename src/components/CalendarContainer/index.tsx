@@ -61,8 +61,8 @@ export const CalendarContainer: FC = () => {
       )}
       {events?.map(
         (event: {
-          id: Key | null | undefined,
-          summary: string,
+          id: Key | null | undefined
+          summary: string
         }) => (
           <li style={{ display: 'block' }} key={event.id}>
             <Event description={event.summary} />

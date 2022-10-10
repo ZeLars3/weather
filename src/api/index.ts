@@ -14,15 +14,8 @@ export const weatherApi = {
     return await instanceAxios.get<ResponseType>(`&q=${name}`)
       .then(res => res.data)
   },
-  async getWeatherFromStormglass (lat: string, long: string): Promise<any> {
-    const params = 'windSpeed,windDirection,airTemperature'
-
-    return await axios.get<any>(`https://api.stormglass.io/v2/weather/point?lat=${lat}&lng=${long}&params=${params}`,
-      {
-        headers: {
-          Authorization: API_APPID_STORM,
-        },
-      })
+  async getWeatherHourly (name: string): Promise<any> {
+    return await axios.get(`https://api.weatherbit.io/v2.0/forecast/hourly?city=${name}&key=${API_APPID_STORM}&hours=48`)
       .then(res => res.data)
   },
   async getCityFromIP (): Promise<IUserResponseLocation> {
@@ -31,5 +24,4 @@ export const weatherApi = {
   },
 }
 
-console.log(weatherApi.getCityFromIP())
-console.log(weatherApi.getWeatherFromStormglass('54', '35'))
+console.log(weatherApi.getWeatherHourly('minsk'))

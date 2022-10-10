@@ -10,6 +10,7 @@ const initialState = {
   error: false,
   days: null as null | ResultDaysType[],
   currentDayWeather: null as null | ResultDaysType,
+  weatherHourly: null as null | any,
 }
 export type initialStateType = typeof initialState;
 
@@ -23,6 +24,11 @@ export const weatherReducer = (
         ...state,
         weather: action.weather,
         days: action.days,
+      }
+    case TYPES.SET_WEATHER_HOURLY:
+      return {
+        ...state,
+        weatherHourly: action.weather,
       }
     case TYPES.SET_PENDING:
       return {

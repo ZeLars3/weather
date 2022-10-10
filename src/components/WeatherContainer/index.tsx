@@ -1,13 +1,17 @@
 import { FC, useEffect, useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 
-import { getWeather, getGeolocation } from 'store/thunk'
+import {
+  getWeather,
+  getGeolocation,
+} from 'store/thunk'
 import { ResultDaysType } from 'utils'
 import {
   AppDispatch,
   useAppDispatch,
   useAppSelector,
 } from 'types'
+import { SERVICES } from 'constants/services'
 
 import {
   ErrorLoader,
@@ -15,6 +19,7 @@ import {
   WeatherItem,
   WeatherMain,
 } from '../common'
+import { ChartWeather } from '../ChartWeather'
 import { WeatherListCard, WeatherWrapper } from './styled'
 
 export const WeatherContainer: FC = () => {
@@ -37,6 +42,9 @@ export const WeatherContainer: FC = () => {
   )
   const userCity = useAppSelector(
     (state: any) => state.location?.location?.city?.name_en,
+  )
+  const currentService = useAppSelector(
+    (state: any) => state.service?.service,
   )
 
   useEffect(() => {
@@ -67,6 +75,7 @@ export const WeatherContainer: FC = () => {
           />
         ))}
       </WeatherListCard>
+      {currentService === SERVICES[1] && <ChartWeather />}
     </WeatherWrapper>
   )
 }

@@ -22,15 +22,15 @@ export const getWeather =
     }
 
 export const getWeatherFromStormglass =
-  (lat: string, long: string): ThunkType<ActionsTypes<typeof actions>> =>
+  (city: string): ThunkType<ActionsTypes<typeof actions>> =>
     async dispatch => {
       try {
         dispatch(actions.setPending(true))
         dispatch(actions.setError(false))
 
-        const weather = await weatherApi.getWeatherFromStormglass(lat, long)
+        const weatherHourly = await weatherApi.getWeatherHourly(city)
 
-        dispatch(actions.setWeather(weather))
+        dispatch(actions.setHourlyWeather(weatherHourly))
       } catch (error: unknown) {
         dispatch(actions.setError(true))
       } finally {

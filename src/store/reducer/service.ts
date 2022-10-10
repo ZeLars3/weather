@@ -1,9 +1,9 @@
-import { SERVICES } from 'constants/index'
+import { Service } from 'enums'
 
 import { TYPES } from '../types'
 
 const initialState = {
-  service: SERVICES[0],
+  service: Service.OpenWeather,
 }
 export type initialStateType = typeof initialState
 
@@ -15,7 +15,7 @@ export const serviceReducer = (
     case TYPES.SET_API:
       return {
         ...state,
-        service: action.location,
+        service: action.service,
       }
     default: {
       return state

@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid'
-import { ChangeEvent, FC } from 'react'
+import { ChangeEvent, FC, useEffect } from 'react'
 
 import { SERVICES } from 'constants/index'
 import { AppDispatch, useAppDispatch } from 'types'
@@ -15,6 +15,10 @@ export const Selector: FC = () => {
   ): void => {
     dispatch(actions.setService(event.target.value))
   }
+
+  useEffect(() => {
+    dispatch(actions.setService(SERVICES[0]))
+  }, [])
 
   return (
     <CustomSelector
