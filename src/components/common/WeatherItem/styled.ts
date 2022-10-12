@@ -48,3 +48,4 @@ export const Temp = styled.div`
   }
 `
 export const Description = styled.div``
+export const Celsius = styled.span``

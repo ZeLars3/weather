@@ -3,9 +3,9 @@ import { ChangeEvent, FC, useEffect } from 'react'
 
 import { SERVICES } from 'constants/index'
 import { AppDispatch, useAppDispatch } from 'types'
+import { actions } from 'store/actions'
 
 import { CustomOption, CustomSelector } from './styled'
-import { actions } from 'store/actionCreator'
 
 export const Selector: FC = () => {
   const dispatch: AppDispatch = useAppDispatch()

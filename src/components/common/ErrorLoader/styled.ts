@@ -7,11 +7,11 @@ export const ErrorImg = styled.img`
 `
 
 export const Description = styled.p`
-text-align: center;
-font-weight: bold;
-margin-top: 20px;
-font-size: 20px;
-letter-spacing: 1px;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 20px;
+  font-size: 20px;
+  letter-spacing: 1px;
   color: ${Color.mediumGrey};
 `
 

@@ -1,6 +1,6 @@
 import { Service } from 'enums'
 
-import { TYPES } from '../types'
+import { TYPES } from '../actions/types'
 
 const initialState = {
   service: Service.OpenWeather,
@@ -9,13 +9,15 @@ export type initialStateType = typeof initialState
 
 export const serviceReducer = (
   state = initialState,
-  action: any,
+  action: { service: Service, type: string },
 ): initialStateType => {
-  switch (action.type) {
+  const { service, type } = action
+
+  switch (type) {
     case TYPES.SET_API:
       return {
         ...state,
-        service: action.service,
+        service
       }
     default: {
       return state

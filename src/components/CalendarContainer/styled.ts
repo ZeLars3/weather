@@ -24,3 +24,9 @@ export const GoogleButton = styled.button`
   color: ${Color.gray};
   background-color: ${Color.white};
 `
+
+export const EventItem = styled.li`
+  display: block;
+`
+
+export const CalendarMessage = styled.h3``

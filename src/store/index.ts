@@ -7,7 +7,7 @@ import thunk from 'redux-thunk'
 import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 
-import { rootReducer } from './reducer'
+import { rootReducer } from './reducers'
 
 type AppRootReducer = typeof rootReducer
 export type RootStateType = ReturnType<AppRootReducer>

@@ -2,14 +2,16 @@ import { FC } from 'react'
 
 import {
   convertedLocalDate,
-  ResultDaysType,
   weatherAverage,
   getCardBackground,
 } from 'utils'
-import { IResponseCity } from 'types'
+import { IWeatherMain } from 'types'
 
 import {
+  Item,
   MainWrapper,
+  Span,
+  TextWrapper,
   WeatherCity,
   WeatherData,
   WeatherIcon,
@@ -20,12 +22,7 @@ import {
 } from './styled'
 import { Image } from '../Image'
 
-interface IPropsType {
-  params: IResponseCity
-  currentWeather: ResultDaysType
-}
-
-export const WeatherMain: FC<IPropsType> = ({
+export const WeatherMain: FC<IWeatherMain> = ({
   params,
   currentWeather,
 }) => {
@@ -36,8 +33,7 @@ export const WeatherMain: FC<IPropsType> = ({
     params.population.toLocaleString()
   const description: string =
     currentWeather.weather[0].weather[0].main
-  const icon: string =
-  currentWeather.weather[0].weather[0].icon
+  const { icon } = currentWeather.weather[0].weather[0]
   const pop: string = (
     currentWeather.weather[0].pop * 100
   ).toFixed(0)
@@ -52,45 +48,48 @@ export const WeatherMain: FC<IPropsType> = ({
   return (
     <MainWrapper
       background={description}
-      image={getCardBackground(description)}
-    >
+      image={getCardBackground(description)}>
       <WeatherData>
         <WeatherInfo>
           <WeatherIcon>
             <Image
               image={`http://openweathermap.org/img/wn/${icon}@2x.png`}
-              title={description}></Image>
+              title={description}
+            />
           </WeatherIcon>
           <WeatherTemp>
-            <span>Avg Temperature t°</span>
-            <div>
-              {temp} <span>°C</span>
-            </div>
+            <Span>Avg Temperature t°</Span>
+            <TextWrapper>
+              {temp} <Span>°C</Span>
+            </TextWrapper>
           </WeatherTemp>
           <WeatherList>
-            <li>
+            <Item>
               Pop:
-              <span> {pop}%</span>
-            </li>
-            <li>
+              <Span> {pop}%</Span>
+            </Item>
+            <Item>
               Humidity:
-              <span> {humidity}%</span>
-            </li>
-            <li>
+              <Span> {humidity}%</Span>
+            </Item>
+            <Item>
               wind:
-              <span> {windSpeed}</span> m/s
-            </li>
+              <Span> {windSpeed}</Span> m/s
+            </Item>
           </WeatherList>
         </WeatherInfo>
         <WeatherOtherInfo>
           <WeatherCity>
             {params.name}
             {params.country && ','}{' '}
-            <span>{params.country}</span>
+            <Span>{params.country}</Span>
           </WeatherCity>
-          <div>Population: {population}</div>
-          <div>{date}</div>
-          <div>{description}</div>
+          <TextWrapper>
+            Population:
+            {population}
+          </TextWrapper>
+          <TextWrapper>{date}</TextWrapper>
+          <TextWrapper>{description}</TextWrapper>
         </WeatherOtherInfo>
       </WeatherData>
     </MainWrapper>

@@ -1,9 +1,9 @@
 import { FC } from 'react'
 
-interface IPropTypes {
-  description: string
-}
+import { IEvent } from 'types'
 
-export const Event: FC<IPropTypes> = ({ description }) => {
-  return <p>{description}</p>
-}
+import { Text } from './styled'
+
+export const Event: FC<IEvent> = ({ description }) => (
+  <Text>{description}</Text>
+)

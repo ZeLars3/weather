@@ -9,3 +9,5 @@ export const rootReducer = combineReducers({
   location: locationReducer,
   service: serviceReducer,
 })
+
+export type RootState = ReturnType<typeof rootReducer>

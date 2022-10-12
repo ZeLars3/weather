@@ -46,7 +46,7 @@ export const WeatherTemp = styled.div`
     display: flex;
     align-items: flex-start;
   }
-  
+
   span {
     font-size: 16px;
   }
@@ -92,3 +92,6 @@ export const WeatherCity = styled.div`
 `
 
 export const WeatherIcon = styled.div``
+export const TextWrapper = styled.div``
+export const Item = styled.li``
+export const Span = styled.span``

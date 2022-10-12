@@ -1,12 +1,9 @@
 import { FC } from 'react'
 
+import { IImage } from 'types'
+
 import { Img } from './styled'
 
-interface IpropsType {
-  image: string
-  title: string
-}
-
-export const Image: FC<IpropsType> = ({ image, title }) => {
-  return <Img src={image} alt={title} />
-}
+export const Image: FC<IImage> = ({ image, title }) => (
+  <Img src={image} alt={title} />
+)

@@ -1,15 +1,16 @@
 import { FC } from 'react'
 
-import { actions } from 'store/actionCreator'
-import { AppDispatch, useAppDispatch } from 'types'
+import { actions } from 'store/actions'
 import {
-  weatherAverage,
-  ResultDaysType,
-  convertedLocalDate,
-} from 'utils'
+  AppDispatch,
+  IWeatherItem,
+  useAppDispatch,
+} from 'types'
+import { weatherAverage, convertedLocalDate } from 'utils'
 
 import { Image } from '../Image'
 import {
+  Celsius,
   Day,
   Description,
   IconWrapper,
@@ -17,30 +18,22 @@ import {
   Temp,
 } from './styled'
 
-interface IPropsType {
-  onChangeSelected: (value: number) => void
-  active: boolean
-  day: number
-  weatherData: ResultDaysType
-}
-
-export const WeatherItem: FC<IPropsType> = ({
+export const WeatherItem: FC<IWeatherItem> = ({
   onChangeSelected,
   active,
   day,
   weatherData,
 }) => {
+  const dispatch: AppDispatch = useAppDispatch()
   const data: string = convertedLocalDate(
     weatherData.weather[0].dt_txt,
   )
-  const icon: string =
-    weatherData.weather[0].weather[0].icon
+  const { icon } = weatherData.weather[0].weather[0]
   const description: string =
     weatherData.weather[0].weather[0].main
   const temp: string = weatherAverage(
     weatherData.weather,
   ).toFixed(0)
-  const dispatch: AppDispatch = useAppDispatch()
 
   const handlerDays = (day: number) => (): void => {
     onChangeSelected(day)
@@ -57,10 +50,11 @@ export const WeatherItem: FC<IPropsType> = ({
       <IconWrapper>
         <Image
           image={`http://openweathermap.org/img/wn/${icon}@2x.png`}
-          title={description}></Image>
+          title={description}
+        />
       </IconWrapper>
       <Temp>
-        {temp} <span>°C</span>
+        {temp} <Celsius>°C</Celsius>
       </Temp>
       <Description>{description}</Description>
     </ItemWrapper>

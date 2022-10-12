@@ -3,29 +3,26 @@ import { FcGoogle } from 'react-icons/fc'
 import { gapi } from 'gapi-script'
 
 import { Event } from 'components/common'
+import { CLIENT_CONFIG } from 'constants/clientConfig'
 
-import { CalendarWrapper, GoogleButton } from './styled'
-
-const CLIENT_ID =
-  '1021282737273-77imv05jk5k9qfl278er8fhiroc84mrg.apps.googleusercontent.com'
-const API_KEY = 'AIzaSyCEzKkf6rVOw1HKlvscRGTdz-p2a62GG6k'
-const DISCOVERY_DOCS = [
-  'https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest',
-]
-const SCOPES =
-  'https://www.googleapis.com/auth/calendar.events'
+import {
+  CalendarMessage,
+  CalendarWrapper,
+  EventItem,
+  GoogleButton,
+} from './styled'
 
 export const CalendarContainer: FC = () => {
   const [isAuth, setIsAuth] = useState <boolean>(false)
-  const [events, setEvents] = useState([])
+  const [events, setEvents] = useState <any>([])
 
   const handleClick = (): void => {
     gapi.load('client:auth2', () => {
       gapi.client.init({
-        apiKey: API_KEY,
-        clientId: CLIENT_ID,
-        discoveryDocs: DISCOVERY_DOCS,
-        scope: SCOPES,
+        apiKey: CLIENT_CONFIG.apiKey,
+        clientId: CLIENT_CONFIG.clientId,
+        discoveryDocs: CLIENT_CONFIG.discoveryDocs,
+        scope: CLIENT_CONFIG.scopes,
         plugin_name: 'chat',
       })
 
@@ -42,11 +39,21 @@ export const CalendarContainer: FC = () => {
               maxResults: 10,
               orderBy: 'startTime',
             })
-            .then((response: { result: { items: any } }) => {
-              const events = response.result.items
-              setEvents(events)
-              setIsAuth(true)
-            })
+            .then(
+              (response: {
+                result: {
+                  items: {
+                    id: string,
+                    summary: string,
+                  },
+                },
+              }) => {
+                const events = response.result.items
+                console.log(events)
+                setEvents(events)
+                setIsAuth(true)
+              },
+            )
         })
     })
   }
@@ -61,15 +68,19 @@ export const CalendarContainer: FC = () => {
       )}
       {events?.map(
         (event: {
-          id: Key | null | undefined
-          summary: string
+          id: Key | null | undefined,
+          summary: string,
         }) => (
-          <li style={{ display: 'block' }} key={event.id}>
+          <EventItem key={event.id}>
             <Event description={event.summary} />
-          </li>
+          </EventItem>
         ),
       )}
-      {!isAuth && <h3>Now You haven`t any events</h3>}
+      {!isAuth && (
+        <CalendarMessage>
+          Now You haven`t any events
+        </CalendarMessage>
+      )}
     </CalendarWrapper>
   )
 }

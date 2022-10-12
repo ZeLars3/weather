@@ -1,3 +1,5 @@
+import { ApexOptions } from 'apexcharts'
+
 export interface IResponseCity {
   country: string
   name: string
@@ -69,6 +71,16 @@ export interface IResponseListItem {
 }
 
 export interface ResponseType {
-  city: IResponseCity
+  city: IResponseCity | null
   list: IResponseListItem[]
+}
+
+export interface IChart {
+  series: [
+    {
+      name: string
+      data: number[]
+    }
+  ]
+  options: ApexOptions
 }

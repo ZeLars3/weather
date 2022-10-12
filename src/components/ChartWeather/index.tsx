@@ -2,17 +2,19 @@ import { FC } from 'react'
 import Chart from 'react-apexcharts'
 
 import { convertedLocalDate } from 'utils'
-import { useAppSelector } from 'types'
+import { IChart, useAppSelector } from 'types'
 
-import { ChartWrapper } from './styled'
+import { ChartLabel, ChartWrapper } from './styled'
 
 export const ChartWeather: FC = () => {
-  const weatherTemp = useAppSelector(state => state.weather.weatherOnHours!.temp)
-  const hours = useAppSelector(state => state.weather.weatherOnHours!.date).map(hour =>
-    convertedLocalDate(hour, true),
+  const weatherTemp = useAppSelector(
+    state => state.weather.weatherOnHours!.temp,
   )
+  const hours = useAppSelector(
+    state => state.weather.weatherOnHours!.date,
+  ).map(hour => convertedLocalDate(hour, true))
 
-  const data: any = {
+  const data: IChart = {
     series: [
       {
         name: 't °C',
@@ -43,16 +45,7 @@ export const ChartWeather: FC = () => {
           fontSize: '12px',
           colors: ['#333', '#999'],
         },
-        background: {
-          enabled: false,
-        },
       },
-      stroke: {
-        curve: 'smooth',
-        colors: ['#46c2ff'],
-        width: 2,
-      },
-
       legend: {
         show: false,
       },
@@ -68,7 +61,7 @@ export const ChartWeather: FC = () => {
         },
       },
       xaxis: {
-        type: 'numeric ',
+        type: 'category',
         categories: hours,
         crosshairs: {
           show: false,
@@ -79,12 +72,8 @@ export const ChartWeather: FC = () => {
       },
       yaxis: {
         show: true,
-        max: (weatherTemp: number) => {
-          return weatherTemp + 5
-        },
-        min: (weatherTemp: number) => {
-          return weatherTemp - 1
-        },
+        max: (weatherTemp: number) => weatherTemp + 5,
+        min: (weatherTemp: number) => weatherTemp - 1,
         labels: {
           offsetX: -10,
         },
@@ -94,8 +83,13 @@ export const ChartWeather: FC = () => {
 
   return (
     <ChartWrapper>
-      <h3>Temperature °C</h3>
-      <Chart options={data.options} series={data.series} type='area' height={300} />
+      <ChartLabel>Temperature, °C</ChartLabel>
+      <Chart
+        options={data.options}
+        series={data.series}
+        type="area"
+        height={300}
+      />
     </ChartWrapper>
   )
 }

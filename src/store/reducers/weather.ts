@@ -1,7 +1,7 @@
 import { ResultDaysType } from 'utils'
 import { ResponseType } from 'types'
 
-import { TYPES } from '../types'
+import { TYPES } from '../actions/types'
 
 const initialState = {
   weather: null as null | ResponseType,
@@ -18,35 +18,39 @@ export const weatherReducer = (
   state = initialState,
   action: any,
 ): initialStateType => {
-  switch (action.type) {
+  const {
+    weather, days, isPending, error, type,
+} = action
+
+  switch (type) {
     case TYPES.SET_WEATHER:
       return {
         ...state,
-        weather: action.weather,
-        days: action.days,
+        weather,
+        days
       }
     case TYPES.SET_WEATHER_HOURLY:
       return {
         ...state,
-        weatherHourly: action.weather,
+        weatherHourly: weather,
       }
     case TYPES.SET_PENDING:
       return {
         ...state,
-        isPending: action.isPending,
+        isPending
       }
     case TYPES.SET_ERROR:
       return {
         ...state,
-        error: action.error,
+        error
       }
     case TYPES.CHANGE_DAY:
       return {
         ...state,
         currentDayWeather: state?.days![action.payload] ?? false,
         weatherOnHours: {
-          temp: state?.days![action.payload].weather.map(temp => Math.round(+temp.main.temp)) ?? false,
-          date: state?.days![action.payload].weather.map(temp => temp.dt_txt) ?? false,
+          temp: state?.days![action.payload].weather.map((temp) => Math.round(+temp.main.temp)) ?? false,
+          date: state?.days![action.payload].weather.map((temp) => temp.dt_txt) ?? false,
         },
       }
     default: {

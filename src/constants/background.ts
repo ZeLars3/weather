@@ -9,13 +9,13 @@ import Thunderstorm from 'assets/img/thunderstorm.png'
 import Default from 'assets/img/defaultBack.png'
 
 export const BACKGROUND = {
-  ClearSky: ClearSky,
-  Rain: Rain,
-  Clouds: Clouds,
-  Тornado: Тornado,
-  Squall: Squall,
-  Snow: Snow,
-  Drizzle: Drizzle,
-  Thunderstorm: Thunderstorm,
-  Default: Default,
+  ClearSky,
+  Rain,
+  Clouds,
+  Тornado,
+  Squall,
+  Snow,
+  Drizzle,
+  Thunderstorm,
+  Default
 }

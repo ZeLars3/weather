@@ -25,7 +25,7 @@ export const ImageWrapper = styled.div`
   margin: 1.2rem 0;
   transform-origin: 50% 50%;
   animation: spin 4s infinite linear,
-  fadeIn 2s infinite linear;
+    fadeIn 2s infinite linear;
 
   @keyframes spin {
     from {

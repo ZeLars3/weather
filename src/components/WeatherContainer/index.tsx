@@ -1,16 +1,15 @@
-import { FC, useEffect, useState } from 'react'
+import {
+  FC,
+  useEffect,
+  useLayoutEffect,
+  useState,
+} from 'react'
 import { v4 as uuidv4 } from 'uuid'
 
-import {
-  getWeather,
-  getGeolocation,
-} from 'store/thunk'
+import { getWeather, getGeolocation } from 'store/actions'
 import { ResultDaysType } from 'utils'
-import {
-  AppDispatch,
-  useAppDispatch,
-  useAppSelector,
-} from 'types'
+import { AppDispatch, useAppDispatch } from 'types'
+import { useTypedSelector } from 'hooks'
 import { SERVICES } from 'constants/services'
 
 import {
@@ -25,32 +24,25 @@ import { WeatherListCard, WeatherWrapper } from './styled'
 export const WeatherContainer: FC = () => {
   const [selected, setSelected] = useState <number>(0)
   const dispatch: AppDispatch = useAppDispatch()
-  const isPending = useAppSelector(
-    (state: any) => state.weather?.isPending,
+  const { isPending, days, error, currentDayWeather } =
+    useTypedSelector((state) => state.weather)
+  const weatherCity = useTypedSelector(
+    (state) => state.weather.weather?.city,
   )
-  const days = useAppSelector(
-    (state: any) => state.weather?.days,
-  )
-  const weatherCity = useAppSelector(
-    (state: any) => state.weather?.weather?.city,
-  )
-  const currentWeather = useAppSelector(
-    (state: any) => state.weather?.currentDayWeather,
-  )
-  const error = useAppSelector(
-    (state: any) => state.weather?.error,
-  )
-  const userCity = useAppSelector(
+  const userCity = useTypedSelector(
     (state: any) => state.location?.location?.city?.name_en,
   )
-  const currentService = useAppSelector(
-    (state: any) => state.service?.service,
+  const { service } = useTypedSelector(
+    (state) => state.service,
   )
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     dispatch(getGeolocation())
-    dispatch(getWeather(userCity))
   }, [])
+
+  useEffect(() => {
+    dispatch(getWeather(userCity))
+  }, [userCity])
 
   useEffect(() => {
     setSelected(0)
@@ -63,7 +55,8 @@ export const WeatherContainer: FC = () => {
     <WeatherWrapper>
       <WeatherMain
         params={weatherCity}
-        currentWeather={currentWeather}></WeatherMain>
+        currentWeather={currentDayWeather}
+      />
       <WeatherListCard>
         {days.map((item: ResultDaysType, index: number) => (
           <WeatherItem
@@ -75,7 +68,7 @@ export const WeatherContainer: FC = () => {
           />
         ))}
       </WeatherListCard>
-      {currentService === SERVICES[1] && <ChartWeather />}
+      {service === SERVICES[1] && <ChartWeather />}
     </WeatherWrapper>
   )
 }

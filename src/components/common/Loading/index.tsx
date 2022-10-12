@@ -10,15 +10,13 @@ import {
   ImageWrapper,
 } from './styled'
 
-export const Loading: FC = () => {
-  return (
-    <LoadingWrapper>
-      <Wrapper>
-        <ImageWrapper>
-          <Image image={Sunny} title="Loading" />
-        </ImageWrapper>
-        <Text>Loading Weather!</Text>
-      </Wrapper>
-    </LoadingWrapper>
-  )
-}
+export const Loading: FC = () => (
+  <LoadingWrapper>
+    <Wrapper>
+      <ImageWrapper>
+        <Image image={Sunny} title="Loading" />
+      </ImageWrapper>
+      <Text>Loading Weather!</Text>
+    </Wrapper>
+  </LoadingWrapper>
+)

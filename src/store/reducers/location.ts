@@ -1,19 +1,23 @@
-import { TYPES } from '../types'
+import { ICity } from 'types'
+
+import { TYPES } from '../actions/types'
 
 const initialState = {
-  location: null,
+  location: null as null | ICity,
 }
 export type initialStateType = typeof initialState
 
 export const locationReducer = (
   state = initialState,
-  action: any,
+  action: { location: any, type: string },
 ): initialStateType => {
-  switch (action.type) {
+  const { location, type } = action
+
+  switch (type) {
     case TYPES.GET_LOCATION:
       return {
         ...state,
-        location: action.location,
+        location
       }
     default: {
       return state

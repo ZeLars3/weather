@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   background: dimgray;
-  color: ${props => props.theme.logoText};
+  color: ${(props) => props.theme.logoText};
 `
 
 export const AppGlass = styled.div`
@@ -15,7 +15,7 @@ export const AppGlass = styled.div`
   padding: 2rem 0 5rem 0;
   min-height: 97vh;
   border-radius: 2rem;
-  background: ${props => props.theme.bgColor};
+  background: ${(props) => props.theme.bgColor};
 `
 
 export const ThemeWrapper = styled.div`

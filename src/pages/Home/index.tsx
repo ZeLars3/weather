@@ -20,8 +20,7 @@ import {
 
 export const Home: FC = () => {
   const [theme, themeToggler] = useDarkMode()
-  const themeMode =
-    theme === 'light' ? themeLight : themeDark
+  const themeMode = theme === 'light' ? themeLight : themeDark
 
   return (
     <ThemeProvider theme={themeMode}>

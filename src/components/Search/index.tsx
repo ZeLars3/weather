@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react'
 import { FaSearchLocation } from 'react-icons/fa'
 
-import { getWeather } from 'store/thunk'
+import { getWeather } from 'store/actions'
 import {
   AppDispatch,
   useAppDispatch,
@@ -20,6 +20,7 @@ export const Search: FC = () => {
   const userCity = useAppSelector(
     (state: any) => state.location?.location?.city?.name_en,
   )
+
   const [value, setValue] = useState <string>(userCity)
 
   const handlerChange = (
@@ -45,7 +46,9 @@ export const Search: FC = () => {
           onChange={handlerChange}
         />
         <Button>
-          <FaSearchLocation /> Search
+          <FaSearchLocation />
+          {' '}
+          Search
         </Button>
       </SearchForm>
     </SearchWrapper>
